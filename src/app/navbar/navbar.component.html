@@ -1,16 +1,12 @@
-<nav
-  [ngStyle]="{
-    'top': navbarTop,
-    background: background
-  }"
-  class="navbar navbar-expand-lg px-0 px-md-5 animate__animated animate__fadeInDown sticky-top w-100"
-  >
+<nav [ngStyle]="{ 'top': navbarTop }" [class.scrolled]="scrolled" class="navbar navbar-expand-lg p-0 px-md-5 animate__animated animate__fadeInDown sticky-top overflow-hidden">
+  <!-- Logo -->
   <a class="navbar-brand cr" (click)="scrollToSection('home')">
-    <img loading="lazy" src="assets/image/logos/ticketat-logo-white-h.png" class="logo" [alt]="'navbar.title' | translate">
+    <img loading="lazy" src="assets/image/logos/ticketat-logo-3-removebg-preview-2.png" class="logo" [alt]="'navbar.title' | translate">
   </a>
+
   <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon d-flex justify-content-center align-items-center">
-      <i class="fa-brands fa-nfc-symbol text-dark fs-1 "></i>
+      <i class="fa-brands fa-nfc-symbol text-white fs-1"></i>
     </span>
   </button>
   <div class="collapse navbar-collapse list-Item" id="navbarSupportedContent">
@@ -26,20 +22,21 @@
         </li>
       }
     </ul>
-
-    <ul class="navbar-nav d-flex justify-content-center gap-3 mt-2 mt-sm-0">
-      <li class="nav-item">
-        <button class="btn btn-lang py-0 px-3 rounded-pill" (click)="switchLang()">{{lang.toUpperCase() == 'AR' ? 'العربية' : 'EN'}}</button>
-      </li>
-      <li class="nav-item d-flex align-items-center">
-        <button class="second-btn rounded-5">
-          <a
-            href="https://www.ticketateg.com/"
-            target="_blank">
-            {{ 'navbar.getStart' | translate }}
-          </a>
-        </button>
-      </li>
-    </ul>
   </div>
+
+  <ul class="navbar-nav px-0 py-3">
+    <li class="nav-item d-flex align-items-center gap-2">
+      <div class="btn-lang d-flex justify-content-center align-items-center rounded-3 cr" (click)="switchLang()">
+        <span>{{lang.toUpperCase() == 'AR' ? 'ع' : 'EN'}}</span>
+      </div>
+
+      <div class="btn-start d-flex justify-content-center align-items-center rounded-3 cr" (click)="switchLang()">
+        <a
+          href="https://www.ticketateg.com/"
+          target="_blank">
+          {{ 'navbar.getStart' | translate }}
+        </a>
+      </div>
+    </li>
+  </ul>
 </nav>

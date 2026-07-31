@@ -13,11 +13,14 @@ export class NavbarComponent implements OnInit{
   private readonly _PLATFORM_ID = inject(PLATFORM_ID)
   private readonly _TranslateService = inject(TranslateService)
 
-  navbarWidth:string = '100%'
-  navbarTop:string = '0'
-  background:string = 'transparent'
+  navbarTop:string = '0';
+  background:string = `
+    radial-gradient(circle at 85% 30%, rgba(89,138,240,.18), transparent 45%),
+    radial-gradient(circle at 15% 20%, rgba(178,69,194,.20), transparent 45%),
+    linear-gradient(120deg, #21102f 0%, #101B42 50%, #050816 100%);
+  `;
+  scrolled = false;
   lastScrollTop = 0;
-  isNavbarVisible = true;
   lang: string =  'ar';
 
   ngOnInit(): void {
@@ -32,13 +35,15 @@ export class NavbarComponent implements OnInit{
 
     if (scrollPosition > this.lastScrollTop) {
       if(this.lastScrollTop > 200){
-        this.navbarTop = '-100px';
+        this.navbarTop = '-200px';
       }
     } else {
       if(this.lastScrollTop > 200){
         this.navbarTop = '0';
+        this.scrolled = true;
       } else {
         this.navbarTop = '0';
+        this.scrolled = false;
       }
     }
 

@@ -1,5 +1,5 @@
 <!-- <section class="home overflow-hidden" id="home"> <div class="container d-flex justify-content-center align-items-center h-100"> <div class="home-content text-center"> <h1 class="animate__animated animate__fadeInDown animate__slow">{{'hero.title' | translate}}</h1> <p class="mt-3 animate__animated animate__fadeInUp animate__slow">{{'hero.subtitle' | translate}}</p> <div class="d-flex justify-content-center align-items-center gap-2 mt-3"> <button class="btn main-btn animate__animated animate__fadeInRight animate__slow"> <a class="text-white" href="https://www.ticketateg.com/" target="_blank"> {{ 'hero.startNow' | translate }} </a> </button> <button class="btn second-btn animate__animated animate__fadeInLeft animate__slow"> <a (click)="scrollToSection('about')"> {{ 'hero.learnMore' | translate }} </a> </button> </div> </div> <img class="event-wow-img event-1 wow animate__animated animate__jackInTheBox animate__slow" src="assets/image/home-image/event-1.png" alt="events"> <img class="event-wow-img event-2 wow animate__animated animate__rotateIn animate__slow" src="assets/image/home-image/event-2.png" alt="events"> </div> </section> -->
-<section class="ticketat-hero overflow-hidden" id="home" (mousemove)="mouseMove($event)" (mouseleave)="resetMouse()">
+<section class="ticketat-hero py-4 overflow-hidden" id="home" (mousemove)="mouseMove($event)" (mouseleave)="resetMouse()">
   <div class="hero-background">
       <div class="aurora aurora-blue"></div>
       <div class="aurora aurora-purple"></div>
@@ -7,48 +7,57 @@
       <div class="hero-grid"></div>
       <div class="particles"> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
   </div>
-  <div class="floating-ticket ticket-left">
+  <div class="floating-ticket" [ngClass]="lang == 'ar'? 'ticket-left' : 'en-ticket-left'">
       <div class="ticket-icon"> 🎟️ </div>
       <div>
-          <h6> Live Concert </h6> <span> QR Entry • Seat A12 </span> </div>
+          <h6> {{ 'hero.liveConcert' | translate }} </h6> <span> {{ 'hero.qrEntrySeat' | translate:{ seat: 'A12' } }} </span> </div>
   </div>
-  <div class="floating-ticket ticket-right">
-      <div class="ticket-icon"> ⚡ </div>
+  <div class="floating-ticket" [ngClass]="lang == 'ar'? 'ticket-right' : 'en-ticket-right'">
+    <div class="ticket-icon"> ⚡ </div>
       <div>
-          <h6> VIP Pass </h6> <span> Instant Access </span> </div>
+          <h6> {{ 'hero.vipPass' | translate }} </h6> <span> {{ 'hero.instantAccess' | translate }} </span> </div>
   </div>
-  <div class="floating-ticket ticket-bottom">
+  <div class="floating-ticket" [ngClass]="lang == 'ar'? 'ticket-bottom' : 'en-ticket-bottom'">
       <div class="ticket-icon"> 📱 </div>
       <div>
-      <h6> Digital Ticket </h6> <span> Scan & Enter </span> </div>
+      <h6> {{ 'hero.digitalTicket' | translate }} </h6> <span> {{ 'hero.scanEnter' | translate }} </span> </div>
   </div>
-  <div class="floating-ticket qr-ticket">
+  <div class="floating-ticket" [ngClass]="lang == 'ar'? 'qr-ticket' : 'en-qr-ticket'">
       <div class="qr-box">
           <div class="qr-pattern"></div>
       </div>
       <div>
-      <h6> QR Ticket </h6> <span> Ready To Scan </span> </div>
+      <h6> {{ 'hero.qrTicket' | translate }} </h6> <span> {{ 'hero.readyToScan' | translate }} </span> </div>
   </div>
   <div class="container h-100">
       <div class="row h-100 align-items-center">
           <div class="col-lg-7">
               <div class="hero-content">
-                  <div class="hero-badge"> <span></span> Smart Event Experience </div>
-                  <h1> Every Event. <br> One Ticket. <strong> Ticketat. </strong> </h1>
-                  <p> Discover events, book your seats, receive instant QR tickets and enjoy a seamless entry experience. </p>
-                  <div class="hero-actions"> <a href="https://www.ticketateg.com/" target="_blank" class="primary-btn"> Explore Events </a> <button (click)="scrollToSection('about')" class="secondary-btn"> Learn More </button> </div>
+                  <div class="hero-badge"> <span></span> {{ 'hero.badge' | translate }} </div>
+                  <h1>
+                    {{'hero.title-1' | translate}}
+                    <br>
+                    {{'hero.title-2' | translate}}
+                    <br>
+                    <strong class="title-ticketat">{{'hero.title-3' | translate}}</strong>
+                  </h1>
+                  <p> {{ 'hero.subtitle' | translate }}</p>
+                  <div class="hero-actions">
+                    <a href="https://www.ticketateg.com/" target="_blank" class="primary-btn"> {{'hero.startNow' | translate}} </a>
+                    <button (click)="scrollToSection('about')" class="secondary-btn"> {{'hero.learnMore' | translate}} </button>
+                  </div>
                   <div class="hero-numbers">
                       <div>
-                          <h3> 120+ </h3>
-                          <p> Events </p>
+                          <h3> 20+ </h3>
+                          <p> {{'hero.events' | translate}} </p>
                       </div>
                       <div>
-                          <h3> 25K+ </h3>
-                          <p> Tickets </p>
+                          <h3> 12K+ </h3>
+                          <p> {{'hero.tickets' | translate}} </p>
                       </div>
                       <div>
                           <h3> 98% </h3>
-                          <p> Satisfaction </p>
+                          <p> {{'hero.satisfaction' | translate}} </p>
                       </div>
                   </div>
               </div>

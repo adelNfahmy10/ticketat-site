@@ -174,6 +174,9 @@ h1 {
     font-size: 72px;
     line-height: 1.05;
     font-weight: 800;
+    strong{
+      text-shadow: 0 0 20px $primary;
+    }
 }
 
 h1 strong {
@@ -381,22 +384,42 @@ FLOATING CARDS
   left: 8%;
   top: 22%;
 }
+.en-ticket-left {
+  right: 8%;
+  top: 22%;
+}
 
 .ticket-right {
   right: 40%;
   top: 10%;
   animation-delay: 3s;
 }
+.en-ticket-right {
+  left: 40%;
+  top: 10%;
+  animation-delay: 3s;
+}
 
 .ticket-bottom {
-    left: 38%;
-    bottom: 8%;
-    animation-delay: 5s;
+  left: 38%;
+  bottom: 8%;
+  animation-delay: 5s;
 }
+.en-ticket-bottom {
+  right: 38%;
+  bottom: 8%;
+  animation-delay: 5s;
+}
+
 .qr-ticket{
-    left: 0;
-    bottom: 8%;
-    animation-delay: 1s;
+  left: 0;
+  bottom: 8%;
+  animation-delay: 1s;
+}
+.en-qr-ticket{
+  right: 0;
+  bottom: 8%;
+  animation-delay: 1s;
 }
 
 @keyframes randomFloat {
@@ -421,7 +444,7 @@ FLOATING CARDS
 }
 
 /* =========================
-        CONTENT ENTRY
+  CONTENT ENTRY
 ========================= */
 
 @keyframes contentShow {
@@ -464,7 +487,7 @@ FLOATING CARDS
 }
 
 @media (max-width:567px) {
-  
+
 }
 
 /* =========================

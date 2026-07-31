@@ -3,33 +3,90 @@ $second-color:#B245C2;
 *{
   transition: all .3s;
 }
-nav{
-  background-color: transparent;
-  .navbar-brand{
-    .logo{
+nav {
+  background:
+    radial-gradient(circle at 85% 30%, rgba(89,138,240,.18), transparent 45%),
+    radial-gradient(circle at 15% 20%, rgba(178,69,194,.20), transparent 45%),
+    linear-gradient(120deg, #21102f 0%, #101B42 50%, #050816 100%);
+
+  background-size: 200% 200%;
+
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+
+  box-shadow: 0 10px 35px rgba(89,138,240,.08);
+
+  transition: .4s ease;
+
+  animation: navGradient 10s ease-in-out infinite;
+
+  // Change NavBg When Scroll
+  &.scrolled {
+    background:
+      radial-gradient(circle at 85% 30%, rgba(89,138,240,.30), transparent 45%),
+      radial-gradient(circle at 15% 20%, rgba(178,69,194,.35), transparent 45%),
+      linear-gradient(120deg, #21102fb3 0%, #101B42b3 50%, #050816b3 100%);
+  }
+
+  /* Shine Effect */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120px;
+    height: 100%;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.45),
+      transparent
+    );
+
+    transform: skewX(-25deg);
+
+    animation: shine 4s infinite;
+  }
+
+  /* Animated Bottom Border */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: linear-gradient(
+      90deg,
+      #598AF0,
+      #B245C2,
+      #598AF0
+    );
+
+    background-size: 200% 100%;
+
+    animation: borderMove 3s linear infinite;
+  }
+
+  .navbar-brand {
+    .logo {
       width: 150px;
-    }
-    span{
-      font-weight: 600;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      transform: translateY(10px);
-      &:first-of-type{
-        transform: translateY(0);
-      }
+      animation: logoFloat 3s ease-in-out infinite;
     }
   }
 
-  .navbar-toggler-icon{
-    background: none;
-  }
-
-  .list-Item{
-    .nav-link{
+  .list-Item {
+    .nav-link {
       font-size: 14px;
       font-weight: 500;
       position: relative;
+      color: #fff;
       cursor: pointer;
-      &::before{
+
+      &::before {
         content: '';
         position: absolute;
         bottom: 6px;
@@ -37,18 +94,111 @@ nav{
         width: 0;
         height: 3px;
         background-color: $mainColor;
-        transition: all .3s;
+        transition: .3s;
       }
-      &.active, &:hover{
+
+      &.active,
+      &:hover {
         color: $mainColor;
       }
-      &.active::before,&:hover::before{
+
+      &.active::before,
+      &:hover::before {
         width: 75%;
+      }
+
+      &.active::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 6px;
+        background: linear-gradient(90deg,transparent,rgba(89,138,240,.18),transparent);
+        animation: activeGlow 2.5s linear infinite alternate;
+        overflow: hidden;
       }
     }
   }
-  .btn-lang{
+
+  .btn-start, .btn-lang{
     border: 1px solid $mainColor;
+    color: #fff;
+    font-size: 14px;
+    &:hover{
+      box-shadow: 0 0 10px inset $mainColor;
+    }
+  }
+  .btn-start{
+    width: 80px;
+    height: 35px;
+  }
+  .btn-lang {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+/* Animated Gradient + Shadow */
+@keyframes navGradient {
+
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 10px 35px rgba(89,138,240,.08);
+  }
+
+  50% {
+    background-position: 100% 50%;
+    box-shadow:
+      0 18px 45px rgba(178,69,194,.15),
+      0 8px 30px rgba(89,138,240,.12);
+  }
+
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 10px 35px rgba(89,138,240,.08);
+  }
+}
+
+/* Shine Movement */
+@keyframes shine {
+
+  0% {
+    left: -120%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+/* Border Movement */
+@keyframes borderMove {
+  from {
+    background-position: 0% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/* Logo Animation */
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* GlowActive Link Movement */
+@keyframes activeGlow {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(50%);
   }
 }
 

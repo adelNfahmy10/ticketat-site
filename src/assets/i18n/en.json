@@ -15,10 +15,24 @@
     "getStart": "Get Start"
   },
   "hero": {
-    "title": "Discover Events. Book Instantly.",
-    "subtitle": "Explore the hottest events around you and secure your spot with Ticketat in seconds.",
-    "startNow": "Start Now",
-    "learnMore": "Learn More"
+    "title-1": "One Platform.",
+    "title-2": "Endless Events.",
+    "title-3": "Ticketat..",
+    "subtitle": "Discover events, book your seats, receive instant QR tickets and enjoy a seamless entry experience.",
+    "badge": "Smart Event Experience",
+    "startNow": "Explore Events",
+    "learnMore": "Learn More",
+    "events": "Events",
+    "tickets": "Tickets",
+    "satisfaction": "Satisfaction",
+    "liveConcert": "Live Concert",
+    "qrEntrySeat": "QR Entry • Seat {{seat}}",
+    "vipPass": "VIP Pass",
+    "instantAccess": "Instant Access",
+    "digitalTicket": "Digital Ticket",
+    "scanEnter": "Scan & Enter",
+    "qrTicket": "QR Ticket",
+    "readyToScan": "Ready To Scan"
   },
   "about": {
     "title": "About Us",
